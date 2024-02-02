@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<title>FPTU Autokit</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap -->
+	<link href="../utils/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Embed css link here-->
+	<link rel="stylesheet" href="../utils/css/stylemenu.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.mr-5x {
+			margin-right: 1rem;
+			/* Định nghĩa khoảng cách 2rem (hoặc bất kỳ giá trị nào bạn muốn) */
+		}
+
+		.ml-5x {
+			margin-left: 1rem;
+			/* Định nghĩa khoảng cách 2rem (hoặc bất kỳ giá trị nào bạn muốn) */
+		}
+		body{
+			font-size: 16px;
+		}
+		.btn{
+			font-size: 20px;
+			height: 50px;
+		}
+	
+		.form-control {
+			font-size: 16px;
+		}
+	</style>
+</head>
+
+<body class="my-3" style="min-width: 500px">
+	<div>
+		<h1>FPTU Autokit</h1>
+	</div>
+	<hr />
+	<div class="container text-center" id="gen">
+		<div class="form-check d-flex align-items-center justify-content-center">
+			<input class="form-check-input" type="radio" name="gen" id="K18" value="K18" checked>
+			<label class="form-check-label" for="inlineRadio1"> Update profile</label>
+		</div>
+	</div>
+	<div class="d-flex justify-content-center align-items-center">
+		<div>
+			<p id="btn" class="text-center">
+				<button id="btn" class="btn btn-primary">Xác nhận</button>
+			</p>
+			<p id="output"></p>
+		</div>
+	</div>
+	<hr />
+
+	<form class="myDiv" id="check">
+		<!-- <div>
+			<strong>Nếu đây là lần đầu bạn sử dụng FUAutokit: </strong>
+			<h5>Điền các thông tin lên pop-up này, tắt extension, sau đó đăng nhập thủ công vào FAP rồi bật lại extension và load lại trang</h5>
+		</div> -->
+		<div class="form-group">
+			<label for="Campus">Chọn cơ sở</label>
+			<select name="campus" id="campus" class="form-control form-control-sm">
+				<option value="0" selected="selected">Select Campus</option>
+				<option value="3">FU-Hòa Lạc</option>
+				<option value="4">FU-Hồ Chí Minh</option>
+				<option value="5">FU-Đà Nẵng</option>
+				<option value="6">FU-Cần Thơ</option>
+				<option value="7">FU-Quy Nhơn</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="rollnum">Mã số sinh viên</label>
+			<input type="rollnum" class="form-control" id="rollnum" placeholder="Rollnumber">
+		</div>
+		<div class="form-group">
+			<label for="email">Địa chỉ mail</label>
+			<input type="email" class="form-control" id="email" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<label for="password">Mật khẩu <a href="https://library.fpt.edu.vn/" target="_blank">Library</a></label>
+			<input type="password" class="form-control" id="password" placeholder="Password">
+			<input type="checkbox" id="show"> Hiện mật khẩu
+		</div>
+		<button type="submit" class="btn btn-primary d-flex justify-content-center">Lưu</button>
+	</form>
+	<div class="container">
+		<div class="d-flex mt-3 justify-content-center">
+			<button id="go_to_fap-button" class="btn btn-primary mr-5x ml-5x">Go to FAP</button>
+			<button id="go_to_fap-weekly" class="btn btn-primary mr-5x">Go to Weekly Table</button>
+			<button id="go_to_edunext-button" class="btn btn-primary mr-5x">Go to Edunext</button>
+
+		</div>
+		<div class="d-flex mt-3 justify-content-center">
+			<button id="go_to_ggclassroom-button" class="btn btn-primary mr-5x">Go to Classroom</button>
+			<button id="go_to_cms-button" class="btn btn-primary mr-5x">Go to CMS</button>
+		</div>
+	</div>
+	<hr />
+
+	<!--Coppy right-->
+	<div class="copyright d-flex justify-content-center" style="color: red;">
+		Copyright © 2023 by HV
+	</div>
+
+
+
+	<script src="../utils/storage.js"></script>
+	<script src="./popup.js"></script>
+</body>
+
+</html>

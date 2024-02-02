@@ -1,0 +1,219 @@
+{
+	"manifest_version": 3,
+	"name": "FU Autokit",
+	"version": "1.0",
+	"description": "A tool to help FPT University students to login to FPT University's websites faster and easier.",
+	"action": {
+		"default_popup": "./popup/popup.html",
+		"default_icon": {
+			"16": "./assets/fa-icon-16.png",
+			"32": "./assets/fa-icon-32.png",
+			"48": "./assets/fa-icon-48.png",
+			"128": "./assets/fa-icon-128.png"
+		}
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"*://fap.fpt.edu.vn/Default.aspx/*",
+				"*://fap.fpt.edu.vn/*"
+			],
+			"js": [
+				"./content/fap_login.js"
+			]
+		},
+		{
+			"matches": [
+				"*://cmshn.fpt.edu.vn/*",
+				"*://cmshn.fpt.edu.vn/login/index.php"
+			],
+			"js": [
+				"./content/cms_login.js"
+			],
+			"world": "MAIN"
+		},
+		{
+			"matches": [
+				"*://dng.fpt.edu.vn/*"
+			],
+			"js": [
+				"./utils/storage.js",
+				"./content/dng_login.js"
+			]
+		},
+		{
+			"matches": [
+				"*://accounts.google.com/v3/signin/identifier?*fap.fpt.edu.vn*",
+				"*://accounts.google.com/v3/signin/identifier?*cmshn.fpt.edu.vn*",
+				"*://accounts.google.com/v3/signin/identifier?*fu-edunext.fpt.edu.vn*",
+				"*://accounts.google.com/v3/signin/identifier?*flm.fpt.edu.vn*"
+			],
+			"js": [
+				"./utils/storage.js",
+				"./content/auto_login.js"
+			]
+		},
+		{
+			"matches": [
+				"*://flm.fpt.edu.vn/",
+				"*://flm.fpt.edu.vn/DefaultSignin"
+			],
+			"js": [
+				"./content/flm_login.js"
+			],
+			"world": "MAIN"
+		},
+		{
+			"matches": [
+				"*://flm.fpt.edu.vn/*"
+			],
+			"js": [
+				"./content/flm_setlang.js"
+			],
+			"world": "MAIN"
+		},
+		{
+			"matches": [
+				"*://flm.fpt.edu.vn/gui/role/student/ListCurriculum",
+				"*://flm.fpt.edu.vn/gui/role/student/SyllabusManagement",
+				"*://flm.fpt.edu.vn/gui/tool/AllPrequisiteSubject",
+				"*://flm.fpt.edu.vn/gui/tool/AllCorollarySubject"
+			],
+			"js": [
+				"./content/flm_autocomplete.js"
+			],
+			"css": [
+				"./utils/css/autocomplete.css"
+			],
+			"world": "MAIN"
+		},
+		{
+			"matches": [
+				"*://library.fpt.edu.vn/"
+			],
+			"js": [
+				"./content/library_login.js"
+			],
+			"world": "MAIN"
+		},
+		{
+			"matches": [
+				"*://library.fpt.edu.vn/Auth/Login"
+			],
+			"js": [
+				"./utils/storage.js",
+				"./content/process_library.js"
+			]
+		},
+		{
+			"matches": [
+				"*://accounts.google.com/o/oauth2/auth*fap.fpt.edu.vn*",
+				"*://accounts.google.com/o/oauth2/v2/auth*cmshn.fpt.edu.vn*"
+			],
+			"js": [
+				"./utils/storage.js",
+				"./content/google.js"
+			]
+		},
+		{
+			"matches": [
+				"*://accounts.google.com/gsi/select?*fu-edunext.fpt.edu.vn*",
+				"*://accounts.google.com/gsi/select?*flm.fpt.edu.vn*"
+			],
+			"js": [
+				"./utils/storage.js",
+				"./content/gsi.js"
+			]
+		},
+		{
+			"matches": [
+				"*://fap.fpt.edu.vn/Feedback/*"
+			],
+			"js": [
+				"./content/fap_feedback.js"
+			],
+			"world": "MAIN"
+		},
+		{
+			"matches": [
+				"*://fu-edunext.fpt.edu.vn/"
+			],
+			"js": [
+				"./content/edunext_redirect.js"
+			],
+			"world": "MAIN"
+		},
+		{
+			"matches": [
+				"*://fu-edunext.fpt.edu.vn/course/activity/*"
+			],
+			"js": [
+				"/content/edunext_grading.js"
+			]
+		},
+		{
+			"matches": [
+				"*://tinder.com/*"
+			],
+			"js": [
+				"./content/web_t.js"
+			],
+			"world": "MAIN"
+		},
+		{
+			"matches": [
+				"*://fu-edunext.fpt.edu.vn/login"
+			],
+			"js": [
+				"./content/edunext_process.js"
+			],
+			"world": "MAIN",
+			"run_at": "document_start"
+		},
+		{
+			"matches": [
+				"*://fap.fpt.edu.vn/Grade/StudentTranscript.aspx",
+				"*://fap.fpt.edu.vn/Grade/StudentTranscript.aspx"
+			],
+			"css": [
+				"./utils/css/gpa.css"
+			],
+			"js": [
+				"./content/fap_gpa.js"
+			],
+			"run_at": "document_end"
+		},
+		{
+			"js": [
+				"./content/stu_remove_banner.js",
+				"./content/stu_remove_blur.js",
+				"./content/stu_doc_viewer.js"
+			],
+			"css": [
+				"utils/css/studocu.css"
+			],
+			"matches": [
+				"*://www.studocu.com/*",
+				"*://www.studeersnel.nl/*"
+			]
+		},
+		{
+			"matches": [
+				"*://fap.fpt.edu.vn/Grade/StudentGrade.aspx?*"
+			],
+			"js": [
+				"./utils/jquery.js",
+				"./content/fap_calculate_fe.js"
+			]
+		}
+	],
+	"permissions": [
+		"storage"
+	],
+	"icons": {
+		"16": "./assets/fa-icon-16.png",
+		"32": "./assets/fa-icon-32.png",
+		"48": "./assets/fa-icon-48.png",
+		"128": "./assets/fa-icon-128.png"
+	}
+}
